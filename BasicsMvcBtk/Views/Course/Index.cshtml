@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Candidate>
+
+        @if(Model.Count()>0)
+        {
+            <h6 class="display-6">Aplications.(@Model.Count())</h6>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Apply At</th>
+                        <th>Course</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Candidate candidate in Model)
+            {
+                <tr>
+                    <th>@candidate.Email</th>
+                    <th>@candidate.FirstName</th>
+                    <th>@candidate.LastName</th>
+                    <th>@candidate.ApplyAt</th>
+                    <th>@candidate.SelectedCourse</th>
+                </tr>
+            }
+                </tbody>
+            </table>
+        }
+        else{
+            <div class="alert alert-info">
+                There is not application.Plase click here to
+                <a class="alert-link" asp-action="Apply">Apply</a>
+            </div>
+        }
